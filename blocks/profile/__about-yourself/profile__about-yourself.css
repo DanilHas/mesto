@@ -6,4 +6,7 @@
   color: #fff;
   margin: 0;
   grid-area: about-yourself;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
