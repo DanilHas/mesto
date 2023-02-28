@@ -1,0 +1,5 @@
+.profile__avatar-info-container {
+  display: flex;
+  max-width: 486px;
+  gap: 30px;
+}

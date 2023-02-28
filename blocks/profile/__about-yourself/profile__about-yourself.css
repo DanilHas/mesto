@@ -1,0 +1,9 @@
+.profile__about-yourself {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #fff;
+  margin: 0;
+  grid-area: about-yourself;
+}

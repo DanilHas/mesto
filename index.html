@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Место</title>
-  <link rel="stylesheet" href="./pages/index.css">
-</head>
-<body class="root">
-  <div class="page">
-    <header class="header">
-      <img src="./images/header-logo.svg" alt="Логотип 'Место'">
-    </header>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Место</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="root">
+    <div class="page">
+      <header class="header">
+        <img src="./images/header-logo.svg" alt="Логотип 'Место'" />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__avatar-info-container">
+            <img
+              class="profile__avatar"
+              src="./images/Jacques-Yves-Cousteau.jpg"
+              alt="Изображение Жака-Ив Кусто"
+            />
+            <div class="profile__info">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="profile__edit-button">
+                <img
+                  src="./images/edit-button-pencil.svg"
+                  alt="Изображение карандаша кнопки редактирования профиля"
+                />
+              </button>
+              <p class="profile__about-yourself">Исследователь океана</p>
+            </div>
+          </div>
+          <button class="profile__add-button">
+            <img
+              src="./images/add-button-plus.svg"
+              alt="Изображение плюса кнопки добавления фотографий"
+            />
+          </button>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
