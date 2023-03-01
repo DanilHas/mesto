@@ -1,3 +1,21 @@
 .cards {
   width: calc(100% - 400px);
 }
+
+@media screen and (max-width: 1279px) {
+  .cards {
+    width: calc(100% - 200px);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .cards {
+    width: calc(100% - 100px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cards {
+    width: calc(100% - 38px);
+  }
+}

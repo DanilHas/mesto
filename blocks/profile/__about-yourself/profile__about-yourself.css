@@ -10,3 +10,11 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (max-width: 767px) {
+  .profile__about-yourself {
+    font-size: 14px;
+    line-height: 1.21;
+    text-align: center;
+  }
+}

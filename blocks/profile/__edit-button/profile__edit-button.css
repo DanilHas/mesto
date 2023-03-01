@@ -6,10 +6,27 @@
   width: 24px;
   padding: 0;
   grid-area: edit-button;
-  transition: opacity .3s ease-out;
+  transition: opacity 0.3s ease-out;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile__edit-button:hover {
-  opacity: .6;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__edit-button {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+  }
 }

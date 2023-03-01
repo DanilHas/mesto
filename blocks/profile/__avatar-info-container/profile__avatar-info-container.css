@@ -3,3 +3,12 @@
   max-width: 486px;
   gap: 30px;
 }
+
+@media screen and (max-width: 767px) {
+  .profile__avatar-info-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    width: 100%;
+  }
+}
