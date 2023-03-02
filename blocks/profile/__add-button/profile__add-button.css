@@ -7,6 +7,9 @@
   height: 50px;
   transition: opacity .3s ease-out;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile__add-button:hover {

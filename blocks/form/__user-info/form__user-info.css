@@ -1,0 +1,25 @@
+.form__user-info {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 358px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1023px) {
+  .form__user-info {
+    max-width: 274px;
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form__user-info {
+    max-width: 238px;
+    gap: 30px;
+  }
+}

@@ -10,7 +10,11 @@
   <body class="root">
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/header-logo.svg" alt="Логотип 'Место'" />
+        <img
+          class="header__logo"
+          src="./images/header-logo.svg"
+          alt="Логотип 'Место'"
+        />
       </header>
       <main class="content">
         <section class="profile">
@@ -48,11 +52,12 @@
               />
               <div class="card__description-container">
                 <h2 class="card__title">Карачаево-Черкессия</h2>
-                <img
-                  class="card__like"
-                  src="./images/Like.svg"
-                  alt="Изображение сердца, чтобы поставить лайк фотографии"
-                />
+                <button class="card__like-button" type="button">
+                  <img
+                    src="./images/Like.svg"
+                    alt="Изображение сердца, чтобы поставить лайк фотографии"
+                  />
+                </button>
               </div>
             </li>
             <li class="card">
@@ -63,11 +68,12 @@
               />
               <div class="card__description-container">
                 <h2 class="card__title">Гора Эльбрус</h2>
-                <img
-                  class="card__like"
-                  src="./images/Like.svg"
-                  alt="Изображение сердца, чтобы поставить лайк фотографии"
-                />
+                <button class="card__like-button" type="button">
+                  <img
+                    src="./images/Like.svg"
+                    alt="Изображение сердца, чтобы поставить лайк фотографии"
+                  />
+                </button>
               </div>
             </li>
             <li class="card">
@@ -78,11 +84,12 @@
               />
               <div class="card__description-container">
                 <h2 class="card__title">Домбай</h2>
-                <img
-                  class="card__like"
-                  src="./images/Like.svg"
-                  alt="Изображение сердца, чтобы поставить лайк фотографии"
-                />
+                <button class="card__like-button" type="button">
+                  <img
+                    src="./images/Like.svg"
+                    alt="Изображение сердца, чтобы поставить лайк фотографии"
+                  />
+                </button>
               </div>
             </li>
             <li class="card">
@@ -93,11 +100,12 @@
               />
               <div class="card__description-container">
                 <h2 class="card__title">Амстердам</h2>
-                <img
-                  class="card__like"
-                  src="./images/Like.svg"
-                  alt="Изображение сердца, чтобы поставить лайк фотографии"
-                />
+                <button class="card__like-button" type="button">
+                  <img
+                    src="./images/Like.svg"
+                    alt="Изображение сердца, чтобы поставить лайк фотографии"
+                  />
+                </button>
               </div>
             </li>
             <li class="card">
@@ -108,11 +116,12 @@
               />
               <div class="card__description-container">
                 <h2 class="card__title">Сидней</h2>
-                <img
-                  class="card__like"
-                  src="./images/Like.svg"
-                  alt="Изображение сердца, чтобы поставить лайк фотографии"
-                />
+                <button class="card__like-button" type="button">
+                  <img
+                    src="./images/Like.svg"
+                    alt="Изображение сердца, чтобы поставить лайк фотографии"
+                  />
+                </button>
               </div>
             </li>
             <li class="card">
@@ -123,11 +132,12 @@
               />
               <div class="card__description-container">
                 <h2 class="card__title">Ватикан</h2>
-                <img
-                  class="card__like"
-                  src="./images/Like.svg"
-                  alt="Изображение сердца, чтобы поставить лайк фотографии"
-                />
+                <button class="card__like-button" type="button">
+                  <img
+                    src="./images/Like.svg"
+                    alt="Изображение сердца, чтобы поставить лайк фотографии"
+                  />
+                </button>
               </div>
             </li>
           </ul>
@@ -136,6 +146,35 @@
       <footer class="footer">
         <p class="footer__copyright">© 2023 Mesto Russia</p>
       </footer>
+      <section class="popup">
+        <div class="popup__container">
+          <form class="form">
+            <button class="form__close-button" type="button">
+              <img
+                class="form__close-button-image"
+                src="./images/popup-close-icon.svg"
+                alt="Иконка закрытия окна в виде крестика"
+              />
+            </button>
+            <h2 class="form__title">Редактировать профиль</h2>
+            <fieldset class="form__user-info">
+              <input
+                type="text"
+                name="username"
+                placeholder="Имя"
+                class="form__input"
+              />
+              <input
+                type="text"
+                name="userinfo"
+                placeholder="О себе"
+                class="form__input"
+              />
+            </fieldset>
+            <button type="submit" class="form__submit-button">Сохранить</button>
+          </form>
+        </div>
+      </section>
     </div>
   </body>
 </html>
