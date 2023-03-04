@@ -9,7 +9,7 @@
   width: 32px;
   position: relative;
   left: 40px;
-  bottom: 8px;
+  bottom: 40px;
 }
 
 .popup__close-button:hover {
@@ -21,7 +21,7 @@
     width: 24px;
     height: 24px;
     left: 32px;
-    bottom: 8px;
+    bottom: 32px;
   }
 }
 
@@ -30,6 +30,6 @@
     width: 20px;
     height: 20px;
     left: 0;
-    bottom: 16px;
+    bottom: 36px;
   }
 }

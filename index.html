@@ -10,11 +10,13 @@
   <body class="root">
     <div class="page">
       <header class="header">
-        <img
-          class="header__logo"
-          src="./images/header-logo.svg"
-          alt="Логотип 'Место'"
-        >
+        <a href="#">
+          <img
+            class="header__logo"
+            src="./images/header-logo.svg"
+            alt="Логотип 'Место'"
+          >
+        </a>
       </header>
       <main class="content">
         <section class="profile">
@@ -26,8 +28,9 @@
             >
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button">
+              <button class="profile__edit-button" type="button">
                 <img
+                  class="profile__edit-button-image"
                   src="./images/edit-button-pencil.svg"
                   alt="Изображение карандаша кнопки редактирования профиля"
                 >
@@ -35,8 +38,9 @@
               <p class="profile__about-yourself">Исследователь океана</p>
             </div>
           </div>
-          <button class="profile__add-button">
+          <button class="profile__add-button" type="button">
             <img
+              class="profile__add-button-image"
               src="./images/add-button-plus.svg"
               alt="Изображение плюса кнопки добавления фотографий"
             >
@@ -155,20 +159,20 @@
               alt="Иконка закрытия окна в виде крестика"
             >
           </button>
-          <form class="form">
-            <h2 class="form__title">Редактировать профиль</h2>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="form" name="editProfileForm">
             <fieldset class="form__user-info">
               <input
                 type="text"
                 name="username"
                 placeholder="Имя"
-                class="input form__name-input"
+                class="form__input form__input_info_name"
               >
               <input
                 type="text"
                 name="userinfo"
                 placeholder="О себе"
-                class="input form__job-input"
+                class="form__input form__input_info_job"
               >
             </fieldset>
             <button type="submit" class="form__submit-button">Сохранить</button>
