@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="root">
     <div class="page">
@@ -14,7 +14,7 @@
           class="header__logo"
           src="./images/header-logo.svg"
           alt="Логотип 'Место'"
-        />
+        >
       </header>
       <main class="content">
         <section class="profile">
@@ -23,14 +23,14 @@
               class="profile__avatar"
               src="./images/Jacques-Yves-Cousteau.jpg"
               alt="Изображение Жака-Ив Кусто"
-            />
+            >
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button class="profile__edit-button">
                 <img
                   src="./images/edit-button-pencil.svg"
                   alt="Изображение карандаша кнопки редактирования профиля"
-                />
+                >
               </button>
               <p class="profile__about-yourself">Исследователь океана</p>
             </div>
@@ -39,7 +39,7 @@
             <img
               src="./images/add-button-plus.svg"
               alt="Изображение плюса кнопки добавления фотографий"
-            />
+            >
           </button>
         </section>
         <section class="cards">
@@ -49,14 +49,14 @@
                 class="card__image"
                 src="./images/Karachaevsk.jpg"
                 alt="Изображение кирпичного здания на фоне горы, заросшей лесом, в Карачаево-Черкессии"
-              />
+              >
               <div class="card__description-container">
                 <h2 class="card__title">Карачаево-Черкессия</h2>
                 <button class="card__like-button" type="button">
                   <img
                     src="./images/Like.svg"
                     alt="Изображение сердца, чтобы поставить лайк фотографии"
-                  />
+                  >
                 </button>
               </div>
             </li>
@@ -65,14 +65,14 @@
                 class="card__image"
                 src="./images/Elbrus.jpg"
                 alt="Изображение горы Эльбрус в далеке"
-              />
+              >
               <div class="card__description-container">
                 <h2 class="card__title">Гора Эльбрус</h2>
                 <button class="card__like-button" type="button">
                   <img
                     src="./images/Like.svg"
                     alt="Изображение сердца, чтобы поставить лайк фотографии"
-                  />
+                  >
                 </button>
               </div>
             </li>
@@ -81,14 +81,14 @@
                 class="card__image"
                 src="./images/Dombai.jpg"
                 alt="Изображение заснеженной горной вершины Домбая"
-              />
+              >
               <div class="card__description-container">
                 <h2 class="card__title">Домбай</h2>
                 <button class="card__like-button" type="button">
                   <img
                     src="./images/Like.svg"
                     alt="Изображение сердца, чтобы поставить лайк фотографии"
-                  />
+                  >
                 </button>
               </div>
             </li>
@@ -97,14 +97,14 @@
                 class="card__image"
                 src="./images/Amsterdam-sluishuis.jpg"
                 alt="Изображение необычного жилого здания в Амстердаме"
-              />
+              >
               <div class="card__description-container">
                 <h2 class="card__title">Амстердам</h2>
                 <button class="card__like-button" type="button">
                   <img
                     src="./images/Like.svg"
                     alt="Изображение сердца, чтобы поставить лайк фотографии"
-                  />
+                  >
                 </button>
               </div>
             </li>
@@ -113,14 +113,14 @@
                 class="card__image"
                 src="./images/Sydney-opera-house.jpg"
                 alt="Изображение оперного театра в Сиднее"
-              />
+              >
               <div class="card__description-container">
                 <h2 class="card__title">Сидней</h2>
                 <button class="card__like-button" type="button">
                   <img
                     src="./images/Like.svg"
                     alt="Изображение сердца, чтобы поставить лайк фотографии"
-                  />
+                  >
                 </button>
               </div>
             </li>
@@ -129,14 +129,14 @@
                 class="card__image"
                 src="./images/Vatican-museum.jpg"
                 alt="Изображение спиральной лестницы в Ватиканском музее"
-              />
+              >
               <div class="card__description-container">
                 <h2 class="card__title">Ватикан</h2>
                 <button class="card__like-button" type="button">
                   <img
                     src="./images/Like.svg"
                     alt="Изображение сердца, чтобы поставить лайк фотографии"
-                  />
+                  >
                 </button>
               </div>
             </li>
@@ -148,33 +148,34 @@
       </footer>
       <section class="popup">
         <div class="popup__container">
+          <button class="popup__close-button" type="button">
+            <img
+              class="popup__close-button-image"
+              src="./images/popup-close-icon.svg"
+              alt="Иконка закрытия окна в виде крестика"
+            >
+          </button>
           <form class="form">
-            <button class="form__close-button" type="button">
-              <img
-                class="form__close-button-image"
-                src="./images/popup-close-icon.svg"
-                alt="Иконка закрытия окна в виде крестика"
-              />
-            </button>
             <h2 class="form__title">Редактировать профиль</h2>
             <fieldset class="form__user-info">
               <input
                 type="text"
                 name="username"
                 placeholder="Имя"
-                class="form__input"
-              />
+                class="input form__name-input"
+              >
               <input
                 type="text"
                 name="userinfo"
                 placeholder="О себе"
-                class="form__input"
-              />
+                class="input form__job-input"
+              >
             </fieldset>
             <button type="submit" class="form__submit-button">Сохранить</button>
           </form>
         </div>
       </section>
     </div>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

@@ -10,3 +10,7 @@
 .card__like-button:hover {
   opacity: .5;
 }
+
+.card__like-button:active {
+  background: #000;
+}
