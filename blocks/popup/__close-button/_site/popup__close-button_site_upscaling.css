@@ -1,0 +1,9 @@
+.popup__close-button_site_upscaling {
+  bottom: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__close-button_site_upscaling {
+    bottom: 16px;
+  }
+}

@@ -1,4 +1,4 @@
-.form__user-info {
+.form__user-data {
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,14 +11,14 @@
 }
 
 @media screen and (max-width: 1023px) {
-  .form__user-info {
+  .form__user-data {
     max-width: 274px;
     gap: 24px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .form__user-info {
+  .form__user-data {
     max-width: 238px;
     gap: 30px;
   }
