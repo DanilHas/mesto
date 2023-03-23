@@ -77,7 +77,7 @@ const upscalingCardImage = (data) => {
 
 // функция создания карточки
 const createCard = (data) => {
-  const card = cardTemplate.content.cloneNode(true);
+  const card = cardTemplate.content.querySelector('.card').cloneNode(true);
 
   const cardImage = card.querySelector('.card__image');
   cardImage.src = data.link;
