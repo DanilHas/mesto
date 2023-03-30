@@ -12,13 +12,7 @@ const editButtonElement = document.querySelector('.profile__edit-button');
 const addButtonElement = document.querySelector('.profile__add-button');
 
 // кнопки закрытия попапов
-const editProfilePopupCloseButtonElement =
-  editProfilePopupElement.querySelector('.popup__close-button');
-const addCardPopupCloseButtonElement = addCardPopupElement.querySelector(
-  '.popup__close-button'
-);
-const upscalingCardImagePopupCloseButton =
-  upscalingCardImagePopupElement.querySelector('.popup__close-button');
+const popupCloseButtonElements = Array.from(document.querySelectorAll('.popup__close-button'));
 
 // формы
 const editProfilePopupFormElement =
@@ -148,10 +142,6 @@ editButtonElement.addEventListener('click', () => {
   openPopup(editProfilePopupElement);
 });
 
-editProfilePopupCloseButtonElement.addEventListener('click', () =>
-  closePopup(editProfilePopupElement)
-);
-
 editProfilePopupFormElement.addEventListener(
   'submit',
   handleEditProfileFormSubmit
@@ -162,13 +152,13 @@ addButtonElement.addEventListener('click', () =>
   openPopup(addCardPopupElement)
 );
 
-addCardPopupCloseButtonElement.addEventListener('click', () =>
-  closePopup(addCardPopupElement)
-);
-
 addCardPopupFormElement.addEventListener('submit', handleAddCardFormSubmit);
 
-// обработчик события закрытия попапа увеличения изображения картинки
-upscalingCardImagePopupCloseButton.addEventListener('click', () =>
-  closePopup(upscalingCardImagePopupElement)
-);
+// обработчики событий закрытия попапов
+popupCloseButtonElements.forEach((closeButton) => {
+  const popup = closeButton.closest('.popup');
+
+  closeButton.addEventListener('click', () => {
+    closePopup(popup);
+  });
+});
