@@ -1,0 +1,5 @@
+.form__input-error {
+  align-self: start;
+  margin-top: 5px;
+  min-height: 30px;
+}

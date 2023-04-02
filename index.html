@@ -57,7 +57,7 @@
             aria-label="закрытия модального окна"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="form" name="editProfileForm">
+          <form class="form" name="editProfileForm" novalidate>
             <fieldset class="form__user-data">
               <input
                 type="text"
@@ -65,14 +65,22 @@
                 required
                 placeholder="Имя"
                 class="form__input form__input_info_name"
+                id="username-input"
+                minlength="2"
+                maxlength="40"
               >
+              <span class="form__input-error username-input-error"></span>
               <input
                 type="text"
                 name="user-info"
                 required
                 placeholder="О себе"
                 class="form__input form__input_info_job"
+                id="user-info-input"
+                minlength="2"
+                maxlength="200"
               >
+              <span class="form__input-error user-info-input-error"></span>
             </fieldset>
             <button type="submit" class="form__submit-button">Сохранить</button>
           </form>
@@ -86,7 +94,7 @@
             aria-label="закрытия модального окна"
           ></button>
           <h2 class="popup__title">Новое место</h2>
-          <form class="form" name="addCardForm">
+          <form class="form" name="addCardForm" novalidate>
             <fieldset class="form__user-data">
               <input
                 type="text"
@@ -94,14 +102,20 @@
                 required
                 placeholder="Название"
                 class="form__input form__input_name_place"
+                id="place-input"
+                minlength="2"
+                maxlength="30"
               >
+              <span class="form__input-error place-input-error"></span>
               <input
                 type="url"
                 name="image-link"
                 required
                 placeholder="Ссылка на картинку"
                 class="form__input form__input_name_image-link"
+                id="image-link-input"
               >
+              <span class="form__input-error image-link-input-error"></span>
             </fieldset>
             <button type="submit" class="form__submit-button">Создать</button>
           </form>
@@ -144,5 +158,6 @@
     </template>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
