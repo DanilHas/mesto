@@ -30,3 +30,5 @@ const initialCards = [
     alt: 'Изображение горных вершин в районе Архыза',
   },
 ];
+
+export default initialCards;
