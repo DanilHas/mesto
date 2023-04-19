@@ -3,7 +3,6 @@ class Card {
     this._data = data;
     this._name = data.name;
     this._link = data.link;
-    this._alt = data.alt;
     this._templateSelector = templateSelector;
     this._upscalingCardImage = upscalingCardImage;
   }
@@ -17,13 +16,14 @@ class Card {
     return card;
   }
 
-  _likeCard(event) {
-    event.target.classList.toggle('card__like-button_active');
+  _likeCard = () => {
+    this._cardLikeButton.classList.toggle('card__like-button_active');
   }
 
   _deleteCard = () => {
     this._element.remove();
-  };
+    this._element = null;
+  }
 
   _handleUpscalingCardImage = () => {
     this._upscalingCardImage(this._data);
@@ -46,7 +46,7 @@ class Card {
     this._setEventListeners();
 
     this._cardImage.src = this._link;
-    this._cardImage.alt = this._alt;
+    this._cardImage.alt = this._name;
 
     this._element.querySelector('.card__title').textContent = this._name;
 

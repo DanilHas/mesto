@@ -44,7 +44,7 @@ const jobElement = document.querySelector('.profile__about-yourself');
 //Функция увеличения изображения картинки
 const upscalingCardImage = (data) => {
   popupCardImage.src = data.link;
-  popupCardImage.alt = data.alt;
+  popupCardImage.alt = data.name;
   popupImageCaption.textContent = data.name;
 
   openPopup(upscalingCardImagePopupElement);
