@@ -1,10 +1,10 @@
 class Card {
-  constructor(data, templateSelector, upscalingCardImage) {
+  constructor({ data, handleCardClick }, templateSelector) {
     this._data = data;
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this._upscalingCardImage = upscalingCardImage;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -18,15 +18,11 @@ class Card {
 
   _likeCard = () => {
     this._cardLikeButton.classList.toggle('card__like-button_active');
-  }
+  };
 
   _deleteCard = () => {
     this._element.remove();
     this._element = null;
-  }
-
-  _handleUpscalingCardImage = () => {
-    this._upscalingCardImage(this._data);
   };
 
   _setEventListeners() {
@@ -38,7 +34,7 @@ class Card {
 
     this._cardLikeButton.addEventListener('click', this._likeCard);
     this._cardDeleteButton.addEventListener('click', this._deleteCard);
-    this._cardImage.addEventListener('click', this._handleUpscalingCardImage);
+    this._cardImage.addEventListener('click', this._handleCardClick.bind(this));
   }
 
   generateCard() {
