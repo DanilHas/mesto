@@ -7,35 +7,31 @@ import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
-import {
-  editButtonElement,
-  addButtonElement,
-  editProfilePopupFormElement,
-  formList,
-  nameInput,
-  jobInput,
-} from '../utils/constants.js';
+import { editButtonElement, addButtonElement } from '../utils/constants.js';
 
+
+const upscalingCardImagePopup = new PopupWithImage('.popup_type_upscaling');
+
+const createCard = (item) => {
+  const card = new Card(
+    {
+      data: item,
+      handleCardClick: () => {
+        upscalingCardImagePopup.open(item);
+      },
+    },
+    '#card-template'
+  );
+
+  const cardElement = card.generateCard();
+  return cardElement;
+};
 
 const cardsList = new Section(
   {
     items: initialCards,
     renderer: (cardItem) => {
-      const card = new Card(
-        {
-          data: cardItem,
-          handleCardClick: () => {
-            const upscalingCardImagePopup = new PopupWithImage(
-              '.popup_type_upscaling',
-              cardItem
-            );
-            upscalingCardImagePopup.open();
-          },
-        },
-        '#card-template'
-      );
-
-      const cardElement = card.generateCard();
+      const cardElement = createCard(cardItem);
 
       cardsList.addItem(cardElement);
     },
@@ -60,49 +56,36 @@ const editProfilePopup = new PopupWithForm({
 const addCardPopup = new PopupWithForm({
   popupSelector: '.popup_type_add-card',
   handleFormSubmit: (formData) => {
-    const card = new Card(
-      {
-        data: formData,
-        handleCardClick: () => {
-          const upscalingCardImagePopup = new PopupWithImage(
-            '.popup_type_upscaling',
-            formData
-          );
-          upscalingCardImagePopup.open();
-        },
-      },
-      '#card-template'
-    );
-
-    const cardElement = card.generateCard();
+    const cardElement = createCard(formData);
 
     cardsList.addItem(cardElement);
   },
 });
 
 // включение валидации форм
-formList.forEach((item) => {
-  const form = new FormValidator(validateSettingsObj, item);
-  form.enableValidation();
-});
+const formValidators = {};
 
-// функция для очищения сообщений об ошибке
-const resetErrorMessages = (form) => {
-  const inputList = Array.from(form.querySelectorAll('.form__input'));
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((form) => {
+    const validator = new FormValidator(config, form);
 
-  inputList.forEach((input) => {
-    new FormValidator(validateSettingsObj, form).hideErrorMessage(input);
+    const formName = form.getAttribute('name');
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
   });
 };
+
+enableValidation(validateSettingsObj);
 
 
 // обработчики событий для редактирования профиля
 editButtonElement.addEventListener('click', () => {
   const userInfoObj = userInfo.getUserInfo();
-  nameInput.value = userInfoObj.name;
-  jobInput.value = userInfoObj.job;
+  editProfilePopup.setInputValues(userInfoObj);
 
-  resetErrorMessages(editProfilePopupFormElement);
+  formValidators['editProfileForm'].resetValidation();
 
   editProfilePopup.open();
 });
@@ -111,7 +94,11 @@ editProfilePopup.setEventListeners();
 
 // обработчики событий по добавлению карточки
 addButtonElement.addEventListener('click', () => {
+  formValidators['addCardForm'].resetValidation();
+
   addCardPopup.open();
 });
 
 addCardPopup.setEventListeners();
+
+upscalingCardImagePopup.setEventListeners();
