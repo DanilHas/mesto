@@ -1,0 +1,14 @@
+.card__like-counter {
+  max-width: 40px;
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.23;
+  text-align: center;
+  color: #000;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

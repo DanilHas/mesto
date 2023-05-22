@@ -20,19 +20,21 @@
       <main class="content">
         <section class="profile">
           <div class="profile__avatar-info-container">
-            <img
-              class="profile__avatar"
-              src="<%=require('./images/jacques-yves-cousteau.jpg')%>"
-              alt="Изображение Жака-Ив Кусто"
+            <button
+              type="button"
+              class="profile__avatar-button"
+              aria-label="изменения аватара"
             >
+              <img class="profile__avatar" src="">
+            </button>
             <div class="profile__info">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button
                 class="profile__edit-button"
                 type="button"
                 aria-label="редактирования профиля"
               ></button>
-              <p class="profile__about-yourself">Исследователь океана</p>
+              <p class="profile__about-yourself"></p>
             </div>
           </div>
           <button
@@ -81,7 +83,13 @@
               >
               <span class="form__input-error user-info-input-error"></span>
             </fieldset>
-            <button type="submit" class="form__submit-button">Сохранить</button>
+            <button
+              type="submit"
+              class="form__submit-button"
+              aria-label="сохранения данных пользователя"
+            >
+              Сохранить
+            </button>
           </form>
         </div>
       </section>
@@ -116,7 +124,13 @@
               >
               <span class="form__input-error image-link-input-error"></span>
             </fieldset>
-            <button type="submit" class="form__submit-button">Создать</button>
+            <button
+              type="submit"
+              class="form__submit-button"
+              aria-label="создания новой карточки"
+            >
+              Создать
+            </button>
           </form>
         </div>
       </section>
@@ -136,6 +150,53 @@
           </figure>
         </div>
       </section>
+      <section class="popup popup_type_delete-card">
+        <div class="popup__container">
+          <button
+            class="popup__close-button"
+            type="button"
+            aria-label="закрытия модального окна"
+          ></button>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button
+            type="button"
+            class="form__submit-button"
+            aria-label="подтверждения действия"
+          >
+            Да
+          </button>
+        </div>
+      </section>
+      <section class="popup popup_type_change-avatar">
+        <div class="popup__container">
+          <button
+            class="popup__close-button"
+            type="button"
+            aria-label="закрытия модального окна"
+          ></button>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <form class="form" name="changeAvatarForm" novalidate>
+            <fieldset class="form__user-data">
+              <input
+                type="url"
+                name="avatar"
+                required
+                placeholder="Ссылка на картинку"
+                class="form__input form__input_name_avatar-link"
+                id="avatar-link-input"
+              >
+              <span class="form__input-error avatar-link-input-error"></span>
+            </fieldset>
+            <button
+              type="submit"
+              class="form__submit-button"
+              aria-label="сохранения аватара"
+            >
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
     <template id="card-template">
       <li class="card">
@@ -147,11 +208,14 @@
         <img class="card__image">
         <div class="card__description-container">
           <h2 class="card__title"></h2>
-          <button
-            class="card__like-button"
-            type="button"
-            aria-label="лайка"
-          ></button>
+          <div class="card__like-container">
+            <button
+              class="card__like-button"
+              type="button"
+              aria-label="лайка"
+            ></button>
+            <p class="card__like-counter"></p>
+          </div>
         </div>
       </li>
     </template>
