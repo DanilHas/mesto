@@ -3,7 +3,7 @@ import Popup from './Popup';
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector, { removeCardItem }) {
     super(popupSelector);
-    this._confirmButton = this._popup.querySelector('.form__submit-button');
+    this._confirmButton = this._popup.querySelector('.popup__submit-button');
     this._removeCardItem = removeCardItem;
   }
 
