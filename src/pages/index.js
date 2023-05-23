@@ -7,12 +7,9 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import {
-  editButtonElement,
-  addButtonElement,
-  profileName,
-  profileAboutYourself,
-  profileAvatar,
-  changeAvatarButtonElement,
+  profileButtonElement,
+  cardButtonElement,
+  avatarButtonElement,
 } from '../utils/constants.js';
 import Api from '../components/Api.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation';
@@ -30,19 +27,23 @@ api.renderInitialData()
   .then((result) => {
     const [initialUserInfo, initialCards] = result;
 
-    profileName.textContent = initialUserInfo.name;
-    profileAboutYourself.textContent = initialUserInfo.about;
-    profileAvatar.src = initialUserInfo.avatar;
+    const userInfo = new UserInfo({
+      nameElementSelector: '.profile__name',
+      jobElementSelector: '.profile__about-yourself',
+      avatarElementSelector: '.profile__avatar',
+    });
 
-    const upscalingCardImagePopup = new PopupWithImage('.popup_type_upscaling');
+    userInfo.setUserInfo(initialUserInfo);
 
-    const deleteCardPopup = new PopupWithConfirmation(
+    const popupCardImage = new PopupWithImage('.popup_type_upscaling');
+
+    const popupConfirmation = new PopupWithConfirmation(
       '.popup_type_delete-card',
       {
-        removeCardItem: (classCopy, cardId) => {
+        removeItem: (card, cardId) => {
           api.deleteCard(cardId)
             .then(() => {
-              classCopy.deleteCard();
+              card.deleteCard();
             })
             .catch((err) => console.error(err));
         },
@@ -58,10 +59,10 @@ api.renderInitialData()
             ownerId: item.owner._id,
           },
           handleCardClick: () => {
-            upscalingCardImagePopup.open(item);
+            popupCardImage.open(item);
           },
-          handleDeleteIconClick: (classCopy, cardId) => {
-            deleteCardPopup.open(classCopy, cardId);
+          handleDeleteIconClick: (card, cardId) => {
+            popupConfirmation.open(card, cardId);
           },
           handleLikeCard: (cardId) => {
             const isLiked = card.isLiked(item.likes);
@@ -98,7 +99,7 @@ api.renderInitialData()
 
     const cardsList = new Section(
       {
-        items: initialCards,
+        items: initialCards.reverse(),
         renderer: (cardItem) => {
           const cardElement = createCard(cardItem);
 
@@ -108,50 +109,48 @@ api.renderInitialData()
       '.cards__list'
     );
 
-    const userInfo = new UserInfo({
-      nameElementSelector: '.profile__name',
-      jobElementSelector: '.profile__about-yourself',
-    });
-
-    const editProfilePopup = new PopupWithForm({
+    const popupProfile = new PopupWithForm({
       popupSelector: '.popup_type_edit-profile',
       handleFormSubmit: (formData) => {
         api.editUserInfo(formData)
           .then((result) => {
             userInfo.setUserInfo(result);
+            popupProfile.close();
           })
           .catch((err) => console.error(err))
           .finally(() => {
-            editProfilePopup.renderLoading(false);
+            popupProfile.renderLoading(false);
           });
       },
     });
 
-    const addCardPopup = new PopupWithForm({
+    const popupCard = new PopupWithForm({
       popupSelector: '.popup_type_add-card',
       handleFormSubmit: (formData) => {
         api.addNewCard(formData)
           .then((result) => {
             const cardElement = createCard(result);
             cardsList.addItem(cardElement);
+            popupCard.close();
           })
           .catch((err) => console.error(err))
           .finally(() => {
-            addCardPopup.renderLoading(false);
+            popupCard.renderLoading(false);
           });
       },
     });
 
-    const changeAvatarPopup = new PopupWithForm({
+    const popupAvatar = new PopupWithForm({
       popupSelector: '.popup_type_change-avatar',
       handleFormSubmit: (formData) => {
         api.changeAvatar(formData.avatar)
           .then((result) => {
-            profileAvatar.src = result.avatar;
+            userInfo.setUserAvatar(result);
+            popupAvatar.close();
           })
           .catch((err) => console.error(err))
           .finally(() => {
-            changeAvatarPopup.renderLoading(false);
+            popupAvatar.renderLoading(false);
           });
       },
     });
@@ -175,12 +174,12 @@ api.renderInitialData()
 
     return {
       userInfo,
-      editProfilePopup,
-      addCardPopup,
+      popupProfile,
+      popupCard,
       cardsList,
-      upscalingCardImagePopup,
-      deleteCardPopup,
-      changeAvatarPopup,
+      popupCardImage,
+      popupConfirmation,
+      popupAvatar,
       enableValidation,
       formValidators,
     };
@@ -188,43 +187,43 @@ api.renderInitialData()
   .then((data) => {
     const {
       userInfo,
-      editProfilePopup,
-      addCardPopup,
+      popupProfile,
+      popupCard,
       cardsList,
-      upscalingCardImagePopup,
-      deleteCardPopup,
-      changeAvatarPopup,
+      popupCardImage,
+      popupConfirmation,
+      popupAvatar,
       enableValidation,
       formValidators,
     } = data;
 
     cardsList.renderItems();
-    addCardPopup.setEventListeners();
-    editProfilePopup.setEventListeners();
-    upscalingCardImagePopup.setEventListeners();
-    deleteCardPopup.setEventListeners();
-    changeAvatarPopup.setEventListeners();
+    popupCard.setEventListeners();
+    popupProfile.setEventListeners();
+    popupCardImage.setEventListeners();
+    popupConfirmation.setEventListeners();
+    popupAvatar.setEventListeners();
     enableValidation(validateSettingsObj);
 
-    addButtonElement.addEventListener('click', () => {
+    cardButtonElement.addEventListener('click', () => {
       formValidators['addCardForm'].resetValidation();
 
-      addCardPopup.open();
+      popupCard.open();
     });
 
-    editButtonElement.addEventListener('click', () => {
+    profileButtonElement.addEventListener('click', () => {
       const userInfoObj = userInfo.getUserInfo();
-      editProfilePopup.setInputValues(userInfoObj);
+      popupProfile.setInputValues(userInfoObj);
 
       formValidators['editProfileForm'].resetValidation();
 
-      editProfilePopup.open();
+      popupProfile.open();
     });
 
-    changeAvatarButtonElement.addEventListener('click', () => {
+    avatarButtonElement.addEventListener('click', () => {
       formValidators['changeAvatarForm'].resetValidation();
 
-      changeAvatarPopup.open();
+      popupAvatar.open();
     });
   })
   .catch((err) => console.error(err));

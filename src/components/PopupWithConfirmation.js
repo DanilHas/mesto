@@ -1,15 +1,15 @@
 import Popup from './Popup';
 
 export default class PopupWithConfirmation extends Popup {
-  constructor(popupSelector, { removeCardItem }) {
+  constructor(popupSelector, { removeItem }) {
     super(popupSelector);
     this._confirmButton = this._popup.querySelector('.popup__submit-button');
-    this._removeCardItem = removeCardItem;
+    this._removeItem = removeItem;
   }
 
   setEventListeners() {
     this._confirmButton.addEventListener('click', () => {
-      this._removeCardItem(this._classCopy, this._cardId);
+      this._removeItem(this._card, this._cardId);
 
       super.close();
     });
@@ -17,9 +17,9 @@ export default class PopupWithConfirmation extends Popup {
     super.setEventListeners();
   }
 
-  open(classCopy, cardId) {
+  open(card, cardId) {
     super.open();
-    this._classCopy = classCopy;
+    this._card = card;
     this._cardId = cardId;
   }
 }

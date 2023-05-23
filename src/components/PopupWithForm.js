@@ -48,8 +48,6 @@ export default class PopupWithForm extends Popup {
       this.renderLoading(true);
 
       this._handleFormSubmit(this._getInputValues());
-
-      this.close();
     });
 
     super.setEventListeners();
