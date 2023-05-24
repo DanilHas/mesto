@@ -9,7 +9,7 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     this._confirmButton.addEventListener('click', () => {
-      this._removeItem(this._card, this._cardId);
+      this._removeItem(this._item, this._itemId);
 
       super.close();
     });
@@ -17,9 +17,9 @@ export default class PopupWithConfirmation extends Popup {
     super.setEventListeners();
   }
 
-  open(card, cardId) {
+  open(item, itemId) {
     super.open();
-    this._card = card;
-    this._cardId = cardId;
+    this._item = item;
+    this._itemId = itemId;
   }
 }
